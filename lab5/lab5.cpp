@@ -22,7 +22,7 @@ int main(){
     cout << result;
 
     cout << "\nMinimum number: ";
-    auto minnum = 1000000;
+    auto minnum = INT_MAX;
     int placemin;
     for(i = 0; i < k; i++){
         if (numbers[i] % 10 == 2 || numbers[i] % 10 == 4){
@@ -33,7 +33,21 @@ int main(){
         }
     }
     cout << minnum;
-    cout << "\nPlace in the sequence: ";
-    cout << placemin;
+    cout << "\nPlace in the sequence: " << placemin << "\n";
 
+    cout << "\t\tTask 2\n";
+    unsigned long digit;
+    int maxx = 0;
+    cout << "Enter a number: ";
+    cin >> digit;
+    while (digit>0)
+    {
+        int d;
+        d = digit % 10;
+        if(d > maxx) {
+            maxx = d;
+        }
+        digit /= 10;
+    }
+    cout << "The maximum digit: " << maxx;
 }
