@@ -13,27 +13,42 @@ int main(){
     }
 
     int result;
-    cout << "The product of numbers: ";
+    int flag = 0;
     for(i=0, result=1; i < k; i++){
         if (numbers[i] % 10 == 2 || numbers[i] % 10 == 4){
             result *= numbers[i];
+            flag += 1;
         }
     }
-    cout << result;
-
-    cout << "\nMinimum number: ";
+    if (flag > 0){
+        cout << "The product of numbers: ";
+        cout << result;
+    }
+    else {
+        cout << "Error!";
+    }
+    
     auto minnum = INT_MAX;
     int placemin;
+    bool fl = 0;
     for(i = 0; i < k; i++){
         if (numbers[i] % 10 == 2 || numbers[i] % 10 == 4){
             if (minnum > numbers[i]){
                 minnum = numbers[i];
                 placemin = i;
             }
+            fl += 1;
         }
     }
-    cout << minnum;
-    cout << "\nPlace in the sequence: " << placemin << "\n";
+    if (fl > 0){
+        cout << "\nMinimum number: ";
+        cout << minnum;
+        cout << "\nPlace in the sequence: " << placemin << "\n";
+    }
+    else {
+        cout << "\nError!\n";
+    }
+    
 
     cout << "\t\tTask 2\n";
     unsigned long digit;
