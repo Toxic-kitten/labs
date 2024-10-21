@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(PROJECT_NAME lab6)
+set(PROJECT_NAME lab6-3)
 project("${PROJECT_NAME}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQIRED TRUE)
 
-add_executable("${PROJECT_NAME}" lab6.cpp)
+add_executable("${PROJECT_NAME}" lab6-3.cpp)
