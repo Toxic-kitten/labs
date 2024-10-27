@@ -21,14 +21,27 @@ int main(){
     }
 
     // Проверка условия
-    int maxsum = 0;
+    int minsum = INT_MAX;
+    int minstrok = 0;
     for(int i=0; i<n; i++){
         int sumstrok = 0;
         for(int j=0; j<m; j++){
             sumstrok += matrix[i][j];
         }
+        if (sumstrok < minsum){
+            minsum = sumstrok;
+            minstrok = i;
+        }
     }
-    
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            if(i == minstrok){
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
     // Вывод чисел
     cout << "----Result----\n";
     for(int i=0; i<n; i++){
@@ -38,7 +51,5 @@ int main(){
         cout << "\n";
     }
 
-    
-    
     return 0;
 }
