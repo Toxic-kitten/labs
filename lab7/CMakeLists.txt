@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQIRED TRUE)
 
-add_executable("${PROJECT_NAME}" lab7.cpp)
+add_executable("${PROJECT_NAME}" lab7.cpp func7.cpp)
