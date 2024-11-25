@@ -22,9 +22,20 @@ bool read(int& n, int& cnt, string words[N_max]){
     return true;
 }
 
-void write(int n, string words[N_max], int cletters[N_max]){
-    for(int i=0;i<n;i++){
-        cout << "<" << words[i] << ">" << "-" << cletters[i] << "-\n";
+void write(int n, int cnt, string words[N_max], int cletters[N_max]){
+    ofstream out("output.txt");
+    string prev = "";
+    for(int i=0;i<cnt;i++){
+        if(n==0){
+            break;
+        }
+        
+        if(words[i] != prev){
+            prev = words[i];
+            out << "<" << words[i] << ">" << "-" << cletters[i] << "-\n";
+            n--;
+        }
+        
     }
 }
 
@@ -57,7 +68,7 @@ void CEL(int cnt, string words[N_max], int cletters[N_max]){
 void sort(int cnt, string words[N_max], int cletters[N_max]){
     for(int i=0;i<cnt-1;i++){
         for(int j=i+1;j<cnt;j++){
-            if(cletters[i] < cletters[j]){
+            if((cletters[i] < cletters[j]) || (cletters[i] == cletters[j] && words[i] < words[j])){
                 int obm = cletters[i];
                 cletters[i] = cletters[j];
                 cletters[j] = obm;
@@ -80,6 +91,6 @@ int main(){
     ClearWords(cnt, words);
     CEL(cnt, words, cletters);
     sort(cnt, words, cletters);
-    write(n, words, cletters);
+    write(n, cnt, words, cletters);
     return 0;
 }
