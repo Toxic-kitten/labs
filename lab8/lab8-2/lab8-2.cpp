@@ -67,11 +67,43 @@ int CountOfConsonants(int n, int index, string words[N_max]){
     return cntsogl;
 }
 
-void sort1(int n, string words[N_max]){
+void DecreasingConsonants(int n, string words[N_max]){
     for(int i=0;i<n-1;i++){
         for(int j=i+1;j<n;j++)
         if(CountOfConsonants(n, i, words) < CountOfConsonants(n, j, words)){
             swap(words[i], words[j]);
+        }
+    }
+}
+
+void DuplicationVowel(int n, string words[N_max]){
+    string vowel = {"aeiouy"};
+    for(int i=0;i<n;i++){
+        string new_word;
+        for(int j=0;j<words[i].length();j++){
+            new_word += words[i][j];
+            bool is_vowel = false;
+            for(int k=0;k<vowel.length();k++){
+                if(words[i][j] == vowel[k]){
+                    is_vowel = true;
+                    break;
+                }
+            }
+            if (is_vowel == true){
+                new_word += words[i][j];
+            }
+        }
+        words[i] = new_word;
+    }
+}
+
+void alfa_sort(int n, string words[N_max]){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<words[i].length();j++){
+            words[i][j] = tolower(words[i][j]);
+            if(words[i] > words[i+1]){
+                swap(words[i], words[i+1]);
+            }
         }
     }
 }
@@ -83,7 +115,11 @@ int main(){
     read(n, words);
     ClearWords(n, words);
     if(!Are_palindromes(n, words)){
-        sort1(n, words);
+        DecreasingConsonants(n, words);
+    }
+    else{
+        DuplicationVowel(n, words);
+        alfa_sort(n, words);
     }
     write(n, words);
 }
