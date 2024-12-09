@@ -7,31 +7,31 @@ using namespace std;
 
 const int N_max = 5120;
 
-bool read(string words[N_max]){
-    ifstream infile("input8-3.txt");
-    if(!infile.is_open()){
-        cerr << "File not found";
+bool read(int& n, string words[N_max]){
+    ifstream in("input8-3.txt");
+    if(!in.is_open()){
+        cout << "file not found!";
         return false;
     }
-
-    string text;
-    while (infile.good()) {
-        string line;
-        getline(infile, line);
-        text += line + "\n";
+    
+    n = 0;
+    while(!in.eof()){
+        in >> words[n];
+        n++;
     }
-    infile.close();
+
+    return true;
 }
 
-void write(string words[N_max]){
-    ofstream outfile("output.txt");
-    for(int i=0;i<N_max; i++){
-        outfile << words[i];
+void write(int& n, string words[N_max]){
+    for(int i=0;i<n;i++){
+        cout << "<" << words[i] << ">\n";
     }
 }
 
 int main(){
+    int n;
     string words[N_max];
-    read(words);
-    write(words);
+    read(n, words);
+    write(n, words);
 }

@@ -20,9 +20,10 @@ bool read(int& n, string words[N_max]){
     return true;
 }
 
-void write(int& n, string words[N_max]){
+void write(int n, string words[N_max]){
+    ofstream out("output.txt");
     for(int i=0;i<n;i++){
-        cout << "<" << words[i] << ">\n";
+        out << "<" << words[i] << ">\n";
     }
 }
 
@@ -46,7 +47,6 @@ bool Are_palindromes(int n, string words[N_max]){
         }
         if(words[i].length() > 1 && words[i] == a){
             return true;
-            break;
         }
     }
     return false;
@@ -98,12 +98,14 @@ void DuplicationVowel(int n, string words[N_max]){
 }
 
 void alfa_sort(int n, string words[N_max]){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<words[i].length();j++){
-            words[i][j] = tolower(words[i][j]);
-            if(words[i] > words[i+1]){
-                swap(words[i], words[i+1]);
+    for(int i=0;i<n-1;i++){
+        for(int k=i+1;k<n;k++){
+            for(int j=0;j<words[i].length();j++){
+                words[i][j] = tolower(words[i][j]);
             }
+            if(words[i] < words[k]){
+                    swap(words[i], words[k]);
+                }
         }
     }
 }
