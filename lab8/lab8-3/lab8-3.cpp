@@ -25,7 +25,7 @@ bool read(int& n, string words[N_max]){
 void write(int& n, string words[N_max]){
     ofstream out("output.txt");
     for(int i=0;i<n;i++){
-        out << "<" << words[i] << "> ";
+        out << words[i] << " ";
     }
 }
 
@@ -88,7 +88,7 @@ void found_letters(int n, string words[N_max], int five_words[5]){
             if (cnt >= 4){
                 toUpper(n, i, words);
                 words[i] += "(";
-                for(int r=0;r<5;r++){
+                for(int r=0;r<pop_lett_in_word.length();r++){
                     char c = pop_lett_in_word[r];
                     words[i] += c;
                 }
