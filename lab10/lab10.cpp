@@ -16,9 +16,6 @@ void AddBack(Node* head, int value){
     e->data = value;
     e->next = p->next;
     p->next = e;
-    // p->data = value;
-    // p->next = head->next;
-    // head->next = p;
 }
 
 void print(Node* head) {
@@ -66,6 +63,61 @@ void Delete(Node* head){
     }
 }
 
+bool one_five_seven(int value){
+    while(value / 10 != 0){
+        if(value % 10 == 1 || value % 10 == 5 || value % 10 == 7){
+            return true;
+        }
+        else{
+            value = value / 10;
+        }
+    }
+    if(value == 1 || value == 5 || value == 7){
+        return true;
+    }
+    return false;
+}
+
+void duplication_prime(Node* head){
+    Node* p = head;
+    while(p->next != nullptr){
+        if(!is_not_prime(p->next->data) && one_five_seven(p->next->data)){
+            Node* v = new Node;
+            v->data = p->next->data;
+            v->next = p->next;
+            p->next = v;
+            p = v->next;
+        }
+        else{
+            p = p->next;
+        }
+    }
+}
+
+void sort_for_up(Node* head){
+    Node* p = head->next;
+    while(p != nullptr)
+    {
+        Node* q = p->next;
+        while(q != nullptr){
+            if(p->data > q->data){
+                swap(p->data, q->data);
+            }
+            q = q->next;
+        }
+        p=p->next;
+    }
+}
+
+void Clear(Node* head){
+    Node* p = head->next;
+    while(p != nullptr){
+        Node* t = p;
+        p = p->next;
+        delete t;
+    }
+}
+
 int main(){
     Node* head = new Node;
     head->next = nullptr;
@@ -80,6 +132,13 @@ int main(){
     }
     if(check_condition(head) == true){
         Delete(head);
+        duplication_prime(head);
+    }
+    else{
+        sort_for_up(head);
     }
     print(head);
+    Clear(head);
+    delete head;
+    head = nullptr;
 }
