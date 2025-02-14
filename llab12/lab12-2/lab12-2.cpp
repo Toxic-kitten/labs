@@ -10,15 +10,15 @@ void Quick_sort(int a, int b, int* arr){
     int left = a - 1;
     int right = b + 1;
     while(1) {
-        do left++; while(arr[left] >= med);
-        do right--; while(arr[right] <= med);
+        do left++; while(arr[left] < med);
+        do right--; while(arr[right] > med);
         if(left >= right){
             break;
         }
         swap(arr[left], arr[right]);
     }
-    right = left;
-    left--;
+    left = right;
+    right++;
     Quick_sort(a, left, arr);
     Quick_sort(right, b, arr);
 }
