@@ -1,0 +1,14 @@
+﻿  main.cpp
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(16,49): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(16,40): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(35,21): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(36,21): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(40,41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(40,25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(70,31): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(70,21): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(97,64): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(97,43): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(104,47): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мои файлы\Git\labs\Project_Game\main.cpp(104,42): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Project_Game.vcxproj -> D:\Мои файлы\Git\labs\Project_Game\Debug\Project_Game.exe

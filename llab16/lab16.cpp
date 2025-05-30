@@ -81,12 +81,17 @@ public:
     }
 
     Matrix& operator*=(const Matrix& other){
-        for(int i=0;i<N;i++){
-            for(int j=0;j<M;j++){
-                m_mat[i][j] *= other.m_mat[i][j];
+        Matrix result;
+            for(int i=0;i<N;i++){
+                for(int j=0;j<M;j++){
+                    result.m_mat[i][j] = T();
+                    for(int k=0;k<M;k++){
+                        result.m_mat[i][j] += m_mat[i][k] * other.m_mat[k][j];
+                    }
+                }
             }
-        }
-        return *this;
+            *this = result;
+            return *this;
     }
 
     Matrix& operator*(const Matrix& other){
